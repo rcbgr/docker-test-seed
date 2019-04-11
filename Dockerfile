@@ -1,7 +1,5 @@
 FROM golang:1.11.5 as builder
 
-ENV GO111MODULE on
-
 RUN mkdir -p /build
 WORKDIR /build
 RUN useradd -u 10001 app
