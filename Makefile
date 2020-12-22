@@ -16,3 +16,7 @@ public:
 	@docker build -t aws-builder-tools-workshop .
 	@docker tag aws-builder-tools-workshop:latest public.ecr.aws/q5l2x5i4/aws-builder-tools-workshop:latest
 	@docker push public.ecr.aws/q5l2x5i4/aws-builder-tools-workshop:latest
+
+.PHONY: build
+build:
+	@docker build -t aws-builder-tools-workshop .
