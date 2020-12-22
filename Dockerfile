@@ -1,4 +1,4 @@
-FROM golang:1.11.5 as builder
+FROM public.ecr.aws/bitnami/golang:1.15 as builder
 
 RUN mkdir -p /build
 WORKDIR /build
