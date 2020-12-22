@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"io"
 	"net/http"
 	"os"
@@ -26,7 +27,17 @@ func main() {
 			io.WriteString(w, strconv.Itoa(f())+"\n")
 		}
 	})
-	http.ListenAndServe(":8080", nil)
+
+	port := "8080"
+
+	if len(os.Getenv("PORT")) > 0 {
+		port = os.Getenv("PORT")
+	}
+
+
+	fmt.Println(fmt.Sprintf("starting listener on: %s"), port)
+
+	http.ListenAndServe(fmt.Sprintf(":%s", port), nil)
 }
 
 func fib() func() int {
