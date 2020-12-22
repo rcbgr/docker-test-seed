@@ -35,9 +35,11 @@ func main() {
 	}
 
 
-	fmt.Println(fmt.Sprintf("starting listener on: %s"), port)
+	fmt.Println(fmt.Sprintf("starting listener on: %s", port))
 
-	http.ListenAndServe(fmt.Sprintf(":%s", port), nil)
+	if err := http.ListenAndServe(fmt.Sprintf(":%s", port), nil); err != nil {
+		fmt.Println(err)
+	}
 }
 
 func fib() func() int {
