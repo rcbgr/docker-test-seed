@@ -34,7 +34,6 @@ func main() {
 		port = os.Getenv("PORT")
 	}
 
-
 	fmt.Println(fmt.Sprintf("starting listener on: %s", port))
 
 	if err := http.ListenAndServe(fmt.Sprintf(":%s", port), nil); err != nil {
